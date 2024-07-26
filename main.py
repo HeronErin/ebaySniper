@@ -25,7 +25,7 @@ def humanTime(seconds):
         ]:
         value = seconds / count
         if value > 1:
-            result.append(f"{round(value, 2) if name == "second" else int(value)} {name}{'s' if value > 1 else ''}")
+            result.append(f"{round(value, 2) if name == 'second' else int(value)} {name}{'s' if value > 1 else ''}")
             seconds %= count
     return ', '.join(result)
 
