@@ -70,7 +70,7 @@ try:
             break
 
         endDell = data["endTime"] - CONFIG["delay"] - CONFIG.get("predelay", 60)
-        waitTill = min(endDell, epoc + CONFIG["infoDumpChk"])
+        waitTill = min(endDell, epoc + CONFIG.get("infoDumpChk", 30*60))
         waitTime = waitTill - epoc
 
         print("Waiting", humanTime(waitTime), "\n")
@@ -87,6 +87,7 @@ try:
             time.sleep(data["endTime"] - epoc - CONFIG["delay"])
 
             ebay.bidWhileUnder(driver, CONFIG["max"])
+            print(f"Open ebay here: https://www.ebay.com/itm/{CONFIG['target']}")
             break
 
 
